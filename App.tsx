@@ -3,7 +3,7 @@ import CTAButton from './components/CTAButton';
 import Carousel from './components/Carousel';
 import Comparison from './components/Comparison';
 import FAQ from './components/FAQ';
-import Quiz from './components/Quiz';
+import Quiz, { QuizData } from './components/Quiz';
 import Result from './components/Result';
 import NotificationPopup from './components/NotificationPopup';
 
@@ -11,6 +11,7 @@ type ViewState = 'landing' | 'quiz' | 'result';
 
 function App() {
   const [view, setView] = useState<ViewState>('landing');
+  const [quizData, setQuizData] = useState<QuizData | null>(null);
   const today = new Date().toLocaleDateString('pt-BR');
 
   const handleStartQuiz = () => {
@@ -18,7 +19,8 @@ function App() {
     window.scrollTo(0, 0);
   };
 
-  const handleQuizFinish = () => {
+  const handleQuizFinish = (data: QuizData) => {
+    setQuizData(data);
     setView('result');
     window.scrollTo(0, 0);
   };
@@ -39,7 +41,7 @@ function App() {
   if (view === 'result') {
     return (
       <>
-        <Result onCheckout={handleCheckout} />
+        <Result onCheckout={handleCheckout} quizData={quizData} />
       </>
     );
   }

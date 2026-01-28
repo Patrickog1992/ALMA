@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
+export interface QuizData {
+  interest: string;
+  ageRange: string;
+  ethnicity: string;
+  zodiac: string;
+  name: string;
+}
+
 interface QuizProps {
-  onFinish: () => void;
+  onFinish: (data: QuizData) => void;
 }
 
 const Quiz: React.FC<QuizProps> = ({ onFinish }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<QuizData>({
     interest: '',
     ageRange: '',
     ethnicity: '',
@@ -35,7 +43,7 @@ const Quiz: React.FC<QuizProps> = ({ onFinish }) => {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  const handleChange = (field: string, value: string) => {
+  const handleChange = (field: keyof QuizData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
@@ -54,7 +62,7 @@ const Quiz: React.FC<QuizProps> = ({ onFinish }) => {
 
   const handleSubmit = () => {
     window.scrollTo(0, 0);
-    onFinish();
+    onFinish(formData);
   };
 
   return (

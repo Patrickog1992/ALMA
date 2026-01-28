@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
-interface ResultProps {
-  onCheckout: () => void;
+// Define the interface locally if importing from Quiz causes circular dependencies or structure issues
+// in a simple setup, though importing from Quiz is cleaner if supported.
+// To be safe with the "no src/" instruction, I'll redefine or just use a compatible type.
+interface QuizData {
+  interest: string;
+  ageRange: string;
+  ethnicity: string;
+  zodiac: string;
+  name: string;
 }
 
-const Result: React.FC<ResultProps> = ({ onCheckout }) => {
+interface ResultProps {
+  onCheckout: () => void;
+  quizData: QuizData | null;
+}
+
+const Result: React.FC<ResultProps> = ({ onCheckout, quizData }) => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [userLocation, setUserLocation] = useState("seu estado");
@@ -46,6 +58,25 @@ const Result: React.FC<ResultProps> = ({ onCheckout }) => {
     return () => clearInterval(interval);
   }, []);
 
+  const getInterestLabel = (interest: string) => {
+    if (interest === 'Eu gosto de homem') return 'Homem';
+    if (interest === 'Eu gosto de mulheres') return 'Mulher';
+    return 'Pessoa';
+  };
+
+  const getUserSummary = () => {
+    if (!quizData) return "Perfil compatível";
+    const parts = [
+      getInterestLabel(quizData.interest),
+      quizData.ageRange,
+      quizData.ethnicity,
+    ];
+    if (quizData.zodiac) {
+      parts.push(`compatível com ${quizData.zodiac}`);
+    }
+    return parts.join(', ');
+  };
+
   return (
     <div className="min-h-screen bg-white font-poppins flex flex-col items-center justify-center p-4">
       {loading ? (
@@ -73,10 +104,10 @@ const Result: React.FC<ResultProps> = ({ onCheckout }) => {
              O desenho da sua alma gêmea está pronto!
            </h2>
            
-           <div className="flex items-center gap-2 mb-8 bg-green-50 px-4 py-2 rounded-full border border-green-100 shadow-sm">
-             <span className="text-green-600 text-xl">📍</span>
-             <p className="text-green-800 font-medium text-sm md:text-base">
-               Alguém na região de <strong>{userLocation}</strong> te espera
+           <div className="flex items-center gap-2 mb-8 bg-green-50 px-6 py-4 rounded-xl border border-green-100 shadow-sm text-center">
+             <span className="text-green-600 text-xl hidden md:inline">📍</span>
+             <p className="text-green-900 font-medium text-sm md:text-base leading-relaxed">
+               Achamos a sua alma gêmea ({getUserSummary()}) está agora em <strong>{userLocation}</strong>
              </p>
            </div>
            
