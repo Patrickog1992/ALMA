@@ -30,10 +30,11 @@ const Result: React.FC<ResultProps> = ({ onCheckout, quizData }) => {
         const data = await response.json();
         
         if (data.success && data.region) {
-          // Sanitização extra: remove "State of" ou "Province of" se a API retornar em inglês
+          // Sanitização completa: remove variações de "State of", "Estado de", etc.
           let cleanRegion = data.region;
-          cleanRegion = cleanRegion.replace(/State of /gi, '');
-          cleanRegion = cleanRegion.replace(/Province of /gi, '');
+          
+          // Remove prefixos comuns em Inglês e Português (case insensitive)
+          cleanRegion = cleanRegion.replace(/^(State of|Province of|Estado de|Estado do|Estado da)\s+/gi, '');
           
           setUserLocation(cleanRegion.trim());
         }
