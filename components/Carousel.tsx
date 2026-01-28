@@ -20,12 +20,18 @@ const Carousel: React.FC = () => {
       <div className="relative w-full">
         <style>{`
           @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
           }
           .animate-scroll {
-            animation: scroll 30s linear infinite;
+            animation: scroll 15s linear infinite;
             width: max-content;
+            will-change: transform;
+          }
+          @media (max-width: 768px) {
+            .animate-scroll {
+                animation-duration: 10s;
+            }
           }
         `}</style>
         
@@ -35,7 +41,7 @@ const Carousel: React.FC = () => {
               <img 
                 src={src} 
                 alt={`Casal unido ${index + 1}`} 
-                className="h-96 md:h-[500px] w-auto rounded-lg shadow-md"
+                className="h-80 md:h-[500px] w-auto rounded-lg shadow-md"
               />
             </div>
           ))}

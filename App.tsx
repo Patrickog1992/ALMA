@@ -202,17 +202,14 @@ function App() {
         <FAQ />
       </section>
 
-      {/* Footer CTA */}
-      <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 flex justify-center z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:relative md:border-none md:shadow-none md:bg-transparent md:pb-24">
+      {/* Footer CTA - Static */}
+      <div className="w-full bg-white border-t border-gray-200 p-4 flex justify-center pb-8 md:pb-24">
         <CTAButton 
           text="SIM, EU QUERO O DESENHO DA MINHA ALMA GÊMEA ➜" 
           className="text-sm md:text-lg py-3 md:py-4" 
           onClick={handleStartQuiz}
         />
       </div>
-      
-      {/* Spacer for mobile fixed footer */}
-      <div className="h-24 md:h-0"></div>
 
     </div>
   );
