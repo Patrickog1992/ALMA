@@ -25,15 +25,17 @@ const Result: React.FC<ResultProps> = ({ onCheckout, quizData }) => {
     // Busca a localização exata do usuário via IP
     const fetchLocation = async () => {
       try {
-        const response = await fetch('https://ipwho.is/');
+        // Adiciona ?lang=pt-BR para tentar forçar a resposta em português
+        const response = await fetch('https://ipwho.is/?lang=pt-BR');
         const data = await response.json();
         
-        if (data.success) {
-          // Alterado para mostrar APENAS o estado/região conforme solicitado
-          // data.region retorna o nome do estado (Ex: São Paulo, Bahia, etc)
-          if (data.region) {
-            setUserLocation(data.region);
-          }
+        if (data.success && data.region) {
+          // Sanitização extra: remove "State of" ou "Province of" se a API retornar em inglês
+          let cleanRegion = data.region;
+          cleanRegion = cleanRegion.replace(/State of /gi, '');
+          cleanRegion = cleanRegion.replace(/Province of /gi, '');
+          
+          setUserLocation(cleanRegion.trim());
         }
       } catch (error) {
         console.error("Erro ao buscar localização:", error);
