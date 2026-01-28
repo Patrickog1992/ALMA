@@ -7,17 +7,40 @@ interface ResultProps {
 const Result: React.FC<ResultProps> = ({ onCheckout }) => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [userLocation, setUserLocation] = useState("sua cidade");
 
   useEffect(() => {
-    // Simulate drawing process with a progress bar
+    // Busca a localização exata do usuário via IP
+    const fetchLocation = async () => {
+      try {
+        const response = await fetch('https://ipwho.is/');
+        const data = await response.json();
+        
+        if (data.success) {
+          // Formata como "Cidade - UF" para parecer mais exato (Ex: São Paulo - SP)
+          // Se não tiver o código do estado, usa apenas a cidade.
+          const locationString = data.region_code 
+            ? `${data.city} - ${data.region_code}` 
+            : data.city;
+          
+          setUserLocation(locationString);
+        }
+      } catch (error) {
+        console.error("Erro ao buscar localização:", error);
+        // Mantém o fallback "sua cidade" caso falhe
+      }
+    };
+
+    fetchLocation();
+
+    // Simula o processo de desenho
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 500); // Small delay after 100%
+          setTimeout(() => setLoading(false), 500); 
           return 100;
         }
-        // Random increment for realistic feel
         return prev + Math.floor(Math.random() * 5) + 1;
       });
     }, 100);
@@ -48,9 +71,16 @@ const Result: React.FC<ResultProps> = ({ onCheckout }) => {
         </div>
       ) : (
         <div className="flex flex-col items-center max-w-2xl w-full animate-fade-in">
-           <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-gray-900 leading-tight">
+           <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 text-gray-900 leading-tight">
              O desenho da sua alma gêmea está pronto!
            </h2>
+           
+           <div className="flex items-center gap-2 mb-8 bg-green-50 px-4 py-2 rounded-full border border-green-100 shadow-sm">
+             <span className="text-green-600 text-xl">📍</span>
+             <p className="text-green-800 font-medium text-sm md:text-base">
+               Alguém na região de <strong>{userLocation}</strong> te espera
+             </p>
+           </div>
            
            <div className="relative w-full max-w-md mb-10 overflow-hidden rounded-xl shadow-2xl border-4 border-purple-100 bg-gray-100">
              <img 
