@@ -7,7 +7,7 @@ interface ResultProps {
 const Result: React.FC<ResultProps> = ({ onCheckout }) => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [userLocation, setUserLocation] = useState("sua cidade");
+  const [userLocation, setUserLocation] = useState("seu estado");
 
   useEffect(() => {
     // Busca a localização exata do usuário via IP
@@ -17,17 +17,15 @@ const Result: React.FC<ResultProps> = ({ onCheckout }) => {
         const data = await response.json();
         
         if (data.success) {
-          // Formata como "Cidade - UF" para parecer mais exato (Ex: São Paulo - SP)
-          // Se não tiver o código do estado, usa apenas a cidade.
-          const locationString = data.region_code 
-            ? `${data.city} - ${data.region_code}` 
-            : data.city;
-          
-          setUserLocation(locationString);
+          // Alterado para mostrar APENAS o estado/região conforme solicitado
+          // data.region retorna o nome do estado (Ex: São Paulo, Bahia, etc)
+          if (data.region) {
+            setUserLocation(data.region);
+          }
         }
       } catch (error) {
         console.error("Erro ao buscar localização:", error);
-        // Mantém o fallback "sua cidade" caso falhe
+        // Mantém o fallback "seu estado" caso falhe
       }
     };
 
