@@ -114,8 +114,23 @@ function App() {
         <Carousel />
       </section>
 
-      {/* Middle CTA */}
-      <div className="flex justify-center px-4 py-8">
+      {/* Middle CTA & Angelica Video */}
+      <div className="flex flex-col items-center px-4 py-8 space-y-8 bg-gray-50">
+        <div className="w-full max-w-2xl text-center">
+            <p className="text-gray-900 font-bold mb-4 text-xl">
+              Veja o vídeo da Angélica comparando o retrato com o marido
+            </p>
+            <video 
+              className="w-full rounded-lg shadow-xl border-4 border-white" 
+              controls 
+              playsInline
+              poster="https://i.imgur.com/U3wmO2w.jpeg"
+            >
+              <source src="https://i.imgur.com/7AXCVta.mp4" type="video/mp4" />
+              Seu navegador não suporta este vídeo.
+            </video>
+        </div>
+
         <CTAButton 
           text="SIM, EU QUERO O DESENHO DA MINHA ALMA GÊMEA ➜" 
           onClick={handleStartQuiz}
