@@ -158,6 +158,48 @@ function App() {
             <p>
               Mas, devido ao grande interesse e para permitir que mais pessoas tenham acesso a essa experiência, hoje você não vai pagar esse valor completo.
             </p>
+
+            <div className="my-8 bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm text-left">
+              <p className="font-bold text-gray-900 mb-6 text-lg">
+                Somente hoje, ao solicitar o Desenho da Sua Alma Gêmea com Ana Velasco, você receberá gratuitamente:
+              </p>
+              
+              <ul className="space-y-6">
+                <li className="flex flex-col">
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 1 (R$29) ✔️ Guia de Conexão Energética</span>
+                  <span className="text-gray-700">Aprenda como se alinhar energeticamente com sua alma gêmea para aumentar as chances de reconhecimento, conexão imediata e sincronicidades no encontro.</span>
+                </li>
+                
+                <li className="flex flex-col">
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 2 (R$19) ✔️ Técnica de Visualização Guiada</span>
+                  <span className="text-gray-700">Uma prática simples para ativar sua intenção amorosa e fortalecer o vínculo emocional antes mesmo do encontro acontecer.</span>
+                </li>
+                
+                <li className="flex flex-col">
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 3 (R$39) ✔️ Arquivo Especial: Como Atrair Sua Alma Gêmea Mais Rápido</span>
+                  <span className="text-gray-700">Orientações espirituais e práticas para acelerar o alinhamento do seu caminho com o amor verdadeiro.</span>
+                </li>
+
+                <li className="flex flex-col">
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 4 (R$27) ✔️ Checklist de Reconhecimento da Alma Gêmea</span>
+                  <span className="text-gray-700">Ajuda você a identificar sinais comportamentais, emocionais e energéticos para reconhecer a pessoa certa quando ela surgir.</span>
+                </li>
+
+                <li className="flex flex-col">
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 5 (R$23) ✔️ Áudio de Ativação Emocional</span>
+                  <span className="text-gray-700">Um áudio curto para fortalecer autoconfiança, abertura emocional e eliminar bloqueios inconscientes que impedem relacionamentos.</span>
+                </li>
+              </ul>
+
+              <div className="mt-8 bg-white border-2 border-green-500 rounded-lg p-4 shadow-md">
+                <p className="text-xl font-bold text-gray-900 mb-1">🎁 Valor total dos bônus: R$137</p>
+                <p className="text-xl font-bold text-green-600">👉 Hoje: incluídos gratuitamente no seu pedido</p>
+              </div>
+
+              <p className="mt-4 text-xs md:text-sm text-gray-500 italic">
+                Esses bônus são disponibilizados apenas enquanto Ana Velasco mantém vagas abertas para novos pedidos. Quando a capacidade diária for atingida, os bônus poderão ser removidos sem aviso.
+              </p>
+            </div>
             
             <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6 my-8 text-center">
               <p className="font-medium mb-2">

@@ -45,14 +45,10 @@ const Quiz: React.FC<QuizProps> = ({ onFinish }) => {
   ];
 
   const ethnicities = [
-    "Sul da Ásia (ex: indiano, paquistanês, cingalês)",
-    "Sudeste Asiático (ex: filipino, singapurense, indonésio, tailandês)",
+    "Asiático",
     "Africanos/Afro-americanos",
-    "Caucasianos/Brancos",
-    "Ásia Ocidental (turco, iraniano)",
-    "Hispânicos/Latinos",
-    "Oriente Médio (ex: saudita, iraniano, iraquiano, sírio, israelense)",
-    "Nativo Americano",
+    "Brasileiro",
+    "Americano",
     "Prefiro não especificar"
   ];
 
