@@ -31,7 +31,6 @@ function App() {
   if (view === 'quiz') {
     return (
       <>
-        <NotificationPopup />
         <Quiz onFinish={handleQuizFinish} />
       </>
     );
@@ -40,7 +39,6 @@ function App() {
   if (view === 'result') {
     return (
       <>
-        <NotificationPopup />
         <Result onCheckout={handleCheckout} />
       </>
     );
