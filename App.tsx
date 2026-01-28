@@ -88,6 +88,7 @@ function App() {
           <video 
             className="w-full rounded-lg shadow-lg" 
             controls 
+            playsInline
             poster="https://i.imgur.com/siyHxpL.jpeg"
           >
             <source src="https://i.imgur.com/zNRQyrV.mp4" type="video/mp4" />
