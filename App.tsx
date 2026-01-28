@@ -5,6 +5,7 @@ import Comparison from './components/Comparison';
 import FAQ from './components/FAQ';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
+import NotificationPopup from './components/NotificationPopup';
 
 type ViewState = 'landing' | 'quiz' | 'result';
 
@@ -23,20 +24,31 @@ function App() {
   };
 
   const handleCheckout = () => {
-    // Here you would redirect to the actual checkout URL
-    alert('Redirecionando para o pagamento seguro...');
+    // Redirect to PerfectPay checkout
+    window.location.href = 'https://go.perfectpay.com.br/PPU38CQ6MU2';
   };
 
   if (view === 'quiz') {
-    return <Quiz onFinish={handleQuizFinish} />;
+    return (
+      <>
+        <NotificationPopup />
+        <Quiz onFinish={handleQuizFinish} />
+      </>
+    );
   }
 
   if (view === 'result') {
-    return <Result onCheckout={handleCheckout} />;
+    return (
+      <>
+        <NotificationPopup />
+        <Result onCheckout={handleCheckout} />
+      </>
+    );
   }
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-poppins selection:bg-purple-200 selection:text-purple-900">
+      <NotificationPopup />
       
       {/* Top Banner */}
       <div className="w-full bg-red-600 text-white text-center py-3 px-4 text-sm md:text-base font-bold">
@@ -67,6 +79,20 @@ function App() {
           <p className="text-sm md:text-base font-bold text-gray-800">
             JUNTE-SE ÀS ⏳2373... PESSOAS QUE JÁ VIRAM O ROSTO DA SUA ALMA GÊMEA COM A MINHA AJUDA! 👇
           </p>
+        </div>
+
+        <div className="w-full max-w-2xl mb-12 text-center">
+          <p className="text-gray-800 font-semibold mb-2 text-lg">
+            Ana tem um recado rápido para você clique e escute
+          </p>
+          <video 
+            className="w-full rounded-lg shadow-lg" 
+            controls 
+            poster="https://i.imgur.com/siyHxpL.jpeg"
+          >
+            <source src="https://i.imgur.com/zNRQyrV.mp4" type="video/mp4" />
+            Seu navegador não suporta este vídeo.
+          </video>
         </div>
 
         <CTAButton 
