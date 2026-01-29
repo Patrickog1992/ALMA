@@ -27,7 +27,7 @@ function App() {
 
   const handleCheckout = () => {
     // Redirect to PerfectPay checkout
-    window.location.href = 'https://go.perfectpay.com.br/PPU38CQ6MU2';
+    window.location.href = 'https://go.perfectpay.com.br/PPU38CQ6PMS';
   };
 
   if (view === 'quiz') {
@@ -183,33 +183,33 @@ function App() {
               
               <ul className="space-y-6">
                 <li className="flex flex-col">
-                  <span className="font-bold text-gray-900 text-lg">BÔNUS 1 (R$29) ✔️ Guia de Conexão Energética</span>
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 1 (R$39) ✔️ Guia de Conexão Energética</span>
                   <span className="text-gray-700">Aprenda como se alinhar energeticamente com sua alma gêmea para aumentar as chances de reconhecimento, conexão imediata e sincronicidades no encontro.</span>
                 </li>
                 
                 <li className="flex flex-col">
-                  <span className="font-bold text-gray-900 text-lg">BÔNUS 2 (R$19) ✔️ Técnica de Visualização Guiada</span>
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 2 (R$29) ✔️ Técnica de Visualização Guiada</span>
                   <span className="text-gray-700">Uma prática simples para ativar sua intenção amorosa e fortalecer o vínculo emocional antes mesmo do encontro acontecer.</span>
                 </li>
                 
                 <li className="flex flex-col">
-                  <span className="font-bold text-gray-900 text-lg">BÔNUS 3 (R$39) ✔️ Arquivo Especial: Como Atrair Sua Alma Gêmea Mais Rápido</span>
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 3 (R$49) ✔️ Arquivo Especial: Como Atrair Sua Alma Gêmea Mais Rápido</span>
                   <span className="text-gray-700">Orientações espirituais e práticas para acelerar o alinhamento do seu caminho com o amor verdadeiro.</span>
                 </li>
 
                 <li className="flex flex-col">
-                  <span className="font-bold text-gray-900 text-lg">BÔNUS 4 (R$27) ✔️ Checklist de Reconhecimento da Alma Gêmea</span>
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 4 (R$37) ✔️ Checklist de Reconhecimento da Alma Gêmea</span>
                   <span className="text-gray-700">Ajuda você a identificar sinais comportamentais, emocionais e energéticos para reconhecer a pessoa certa quando ela surgir.</span>
                 </li>
 
                 <li className="flex flex-col">
-                  <span className="font-bold text-gray-900 text-lg">BÔNUS 5 (R$23) ✔️ Áudio de Ativação Emocional</span>
+                  <span className="font-bold text-gray-900 text-lg">BÔNUS 5 (R$33) ✔️ Áudio de Ativação Emocional</span>
                   <span className="text-gray-700">Um áudio curto para fortalecer autoconfiança, abertura emocional e eliminar bloqueios inconscientes que impedem relacionamentos.</span>
                 </li>
               </ul>
 
               <div className="mt-8 bg-white border-2 border-green-500 rounded-lg p-4 shadow-md">
-                <p className="text-xl font-bold text-gray-900 mb-1">🎁 Valor total dos bônus: R$137</p>
+                <p className="text-xl font-bold text-gray-900 mb-1">🎁 Valor total dos bônus: R$187</p>
                 <p className="text-xl font-bold text-green-600">👉 Hoje: incluídos gratuitamente no seu pedido</p>
               </div>
 
@@ -223,7 +223,7 @@ function App() {
                 Por tempo limitado, o desenho da sua alma gêmea está disponível com 70% de desconto.
               </p>
               <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                De <span className="line-through text-red-500 text-xl">R$ 197</span> por apenas <span className="text-green-600 text-4xl">R$ 27</span>.
+                De <span className="line-through text-red-500 text-xl">R$ 197</span> por apenas <span className="text-green-600 text-4xl">R$ 37</span>.
               </div>
             </div>
 
