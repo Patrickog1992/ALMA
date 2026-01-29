@@ -27,7 +27,7 @@ function App() {
 
   const handleCheckout = () => {
     // Redirect to PerfectPay checkout
-    window.location.href = 'https://go.perfectpay.com.br/PPU38CQ6PMS';
+    window.location.href = 'https://go.perfectpay.com.br/PPU38CQ6QBU';
   };
 
   if (view === 'quiz') {
@@ -223,7 +223,7 @@ function App() {
                 Por tempo limitado, o desenho da sua alma gêmea está disponível com 70% de desconto.
               </p>
               <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                De <span className="line-through text-red-500 text-xl">R$ 197</span> por apenas <span className="text-green-600 text-4xl">R$ 37</span>.
+                De <span className="line-through text-red-500 text-xl">R$ 197</span> por apenas <span className="text-green-600 text-4xl">R$ 19,90</span>.
               </div>
             </div>
 
